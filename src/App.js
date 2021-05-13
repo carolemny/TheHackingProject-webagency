@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+// react
+import React, { useContext } from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
-function App() {
+// styles
+import "bootstrap/dist/css/bootstrap.min.css";
+import "sass/App.scss";
+
+// components
+import MyNavbar from "components/MyNavbar";
+import MyFooter from "components/MyFooter";
+import Home from "pages/Home";
+import About from "pages/About";
+import Works from "pages/Works";
+
+import { ThemeContext } from "./Provider";
+
+const App = () => {
+  const { mode } = useContext(ThemeContext);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`App ${mode}`}>
+      <Router>
+        <MyNavbar />
+        <Switch>
+          <div className="container-content">
+            <Route exact path="/" component={Home}></Route>
+            <Route path="/about" component={About}></Route>
+            <Route path="/works" component={Works}></Route>
+          </div>
+        </Switch>
+        <MyFooter />
+      </Router>
     </div>
   );
-}
+};
 
 export default App;

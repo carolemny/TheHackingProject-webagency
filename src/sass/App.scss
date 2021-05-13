@@ -1,0 +1,203 @@
+@import "my_variables";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  font-size: 1.1em;
+}
+
+.container-content {
+  flex: 1;
+  display: flex;
+}
+
+.App {
+  min-height: 100vh;
+  background-color: $my-light;
+  color: $my-dark;
+  display: flex;
+  flex-flow: column;
+
+  h1 {
+    color: $my-brown;
+    font-weight: bold;
+    font-size: 1.7em;
+    font-family: cursive;
+  }
+
+  h3 {
+    font-family: monospace;
+    margin-bottom: 40px;
+    font-style: italic;
+  }
+
+  h4 {
+    color: $my-grey-medium;
+    font-size: 1em;
+  }
+
+  .my-link,
+  .my-link:visited {
+    text-decoration: none;
+    font-family: monospace;
+    text-transform: uppercase;
+    position: relative;
+    color: $my-grey-dark;
+    padding-bottom: 10px;
+    font-size: x-large;
+    &:after {
+      content: "";
+      height: 3px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      background: $my-grey-dark;
+      transition: 0.2s;
+    }
+    &:hover {
+      text-decoration: none;
+    }
+    &:hover:after {
+      width: 100%;
+    }
+  }
+  .my-list-link {
+    text-transform: none;
+    &:hover:after {
+      width: 0;
+    }
+  }
+
+  .MyNavbar {
+    background-color: rgba(255, 255, 255, 0.7);
+    .navbar {
+      padding-left: 0;
+      padding-right: 0;
+      .navbar-brand {
+        font-weight: bolder;
+        font-size: xx-large;
+        font-family: cursive;
+      }
+    }
+  }
+
+  .SwitchIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    font-size: 17px;
+    margin-left: 5px;
+    color: white;
+    .react-switch-handle {
+      height: 24px;
+      width: 24px;
+    }
+  }
+
+  .Home {
+    width: 100%;
+    .jumbotron {
+      height: 70vh;
+      position: relative;
+      .jumbotron-title {
+        position: absolute;
+        bottom: 0;
+        text-align: center;
+        font-size: larger;
+        font-family: monospace;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        padding: 30px 5px;
+        color: $my-light;
+      }
+    }
+    .container {
+      margin: 50px auto;
+    }
+  }
+
+  .About {
+    justify-content: center;
+    .row {
+      height: 100%;
+      margin: 0;
+      .col-lg-5,
+      .col-md-7,
+      .col-sm-12 {
+        padding: 0;
+        img {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .Works {
+    margin: 30px 60px;
+    .container {
+      padding: 20px;
+    }
+    .list-group-flush {
+      margin-top: 30px;
+    }
+  }
+
+  .MyFooter {
+    background-color: rgba(255, 255, 255, 0.7);
+    svg {
+      font-size: 30px;
+      color: $my-dark;
+    }
+  }
+
+  &.dark {
+    .MyFooter,
+    .MyNavbar {
+      background-color: $my-dark;
+    }
+    background-color: $my-dark;
+    color: $my-light;
+    .SwitchIcon {
+      margin-left: 15px;
+      padding-bottom: 3px;
+    }
+    .my-link,
+    .my-link:visited {
+      color: $my-light;
+      &:after {
+        background: $my-grey-light;
+      }
+    }
+    .list-group-item {
+      background-color: $my-grey-dark;
+      .my-list-link {
+        color: $my-dark;
+      }
+    }
+    .navbar-brand {
+      color: $my-grey-light;
+    }
+    .navbar-toggler {
+      border-color: rgba(249, 245, 239, 0.3);
+      background-color: rgba(249, 245, 239, 0.3);
+    }
+    .react-switch-bg {
+      border: solid 1.7px $my-light;
+    }
+    .MyFooter {
+      .github-logo,
+      .linkedin-icon {
+        svg {
+          fill: $my-light;
+        }
+      }
+    }
+  }
+}
